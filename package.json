@@ -1,0 +1,13 @@
+{
+  "name": "css_animations",
+  "version": "1.0.0",
+  "description": "Open Classrooms CSS Animations Course Work",
+  "main": "index.js",
+  "scripts": {
+    "sass": "sass --watch ./main.scss:./style.css",
+    "prefix": "postcss ./style.css --use autoprefixer"
+  },
+  "author": "Kyle Berliner",
+  "license": "ISC",
+  "browserslist": "last 4 versions"
+}
