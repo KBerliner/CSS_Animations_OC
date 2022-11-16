@@ -1,6 +1,81 @@
+@import "./sass/utils/variables";
+
 body {
-    background-color: green;
+    height: 1000px;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    background-color: rgb(206, 230, 240);
+}
+
+.container {
+    margin: 2rem;
+    padding: 1rem;
+}
+
+.btncontainer {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+}
+
+.btn {
+    background-color: $cd-btn-start;
+    color: $cd-btn-txt;
+    border: 2px solid $cd-btn-end;
+    font-size: 3rem;
+    cursor: pointer;
+    padding: 1.85rem 3rem;
+    border-radius: 10rem;
+    transform: scale(1);
+    transition: transform 450ms, background-color 300ms 150ms;
+    &:active + .ball {
+        transform: scale(1);
+    }
     &:hover {
-        background-color: red;
+        background-color: $cd-btn-end;
+        transform: scale(1.13);
+    }
+}
+
+.ball {
+    width: $ball-size;
+    height: $ball-size;
+    background: $cd-btn-txt;
+    margin-top: 1rem;
+    border-radius: $ball-size * 0.5;
+    transform: scale(0.1);
+    transition: transform 4000ms;
+}
+
+.form {
+    &__group {
+        & input {
+            border: 2px solid $cd-box;
+            border-radius: 100rem;
+            color: $cd-form-txt;
+            font-family: 'Montserrat', sans-serif;
+            font-size: 2.5rem;
+            outline: none;
+            padding: .5rem 1.5rem;
+            width: 100%;
+            transition: background-color 500ms;
+            &:focus {
+                border: 2px solid $cd-form-txt;
+            }
+            &:not(:focus):invalid {
+                background: $cd-danger;
+                border: 2px solid $cd-danger;
+                color: $cd-form-txt--invalid;
+            }
+        }
+        & label {
+            color: $cd-form-txt;
+            margin-left: 1.5rem;
+            font-family: 'Montserrat', sans-serif;
+            font-weight: 600;
+        }
     }
 }

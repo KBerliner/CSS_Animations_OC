@@ -1,8 +1,77 @@
 body {
-  background-color: green;
+  height: 1000px;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  background-color: rgb(206, 230, 240);
 }
-body:hover {
-  background-color: red;
+
+.container {
+  margin: 2rem;
+  padding: 1rem;
+}
+
+.btncontainer {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+}
+
+.btn {
+  background-color: rgba(1, 28, 55, 0);
+  color: #15DEA5;
+  border: 2px solid rgb(1, 28, 55);
+  font-size: 3rem;
+  cursor: pointer;
+  padding: 1.85rem 3rem;
+  border-radius: 10rem;
+  transform: scale(1);
+  transition: transform 450ms, background-color 300ms 150ms;
+}
+.btn:active + .ball {
+  transform: scale(1);
+}
+.btn:hover {
+  background-color: rgb(1, 28, 55);
+  transform: scale(1.13);
+}
+
+.ball {
+  width: 4rem;
+  height: 4rem;
+  background: #15DEA5;
+  margin-top: 1rem;
+  border-radius: 2rem;
+  transform: scale(0.1);
+  transition: transform 4000ms;
+}
+
+.form__group input {
+  border: 2px solid #fff;
+  border-radius: 100rem;
+  color: #6300a0;
+  font-family: "Montserrat", sans-serif;
+  font-size: 2.5rem;
+  outline: none;
+  padding: 0.5rem 1.5rem;
+  width: 100%;
+  transition: background-color 500ms;
+}
+.form__group input:focus {
+  border: 2px solid #6300a0;
+}
+.form__group input:not(:focus):invalid {
+  background: #df2727;
+  border: 2px solid #df2727;
+  color: #fff;
+}
+.form__group label {
+  color: #6300a0;
+  margin-left: 1.5rem;
+  font-family: "Montserrat", sans-serif;
+  font-weight: 600;
 }
 
 /*# sourceMappingURL=style.css.map */
