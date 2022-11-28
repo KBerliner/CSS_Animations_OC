@@ -1,9 +1,9 @@
 body {
-  height: 1000px;
+  min-height: 2000px;
   display: flex;
-  flex-direction: column;
+  flex-direction: column-reverse;
   align-items: center;
-  justify-content: center;
+  justify-content: space-around;
   background-color: rgb(206, 230, 240);
 }
 
@@ -72,6 +72,76 @@ body {
   margin-left: 1.5rem;
   font-family: "Montserrat", sans-serif;
   font-weight: 600;
+}
+
+.progress {
+  width: 20em;
+  height: 2em;
+  display: flex;
+  flex-direction: center;
+  align-items: center;
+}
+.progress__bar {
+  background-color: #11b183;
+  width: 19.8em;
+  height: 2.2em;
+  margin: 0.1em;
+  animation: progress-bar 1000ms 1500ms both;
+  transform-origin: left;
+  position: absolute;
+}
+.progress__cat {
+  background-image: url(./photos/kittenpic.jpg);
+  background-size: cover;
+  width: 24em;
+  height: 16em;
+  position: absolute;
+  overflow: hidden;
+  z-index: 1;
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+  align-items: center;
+  background-position: center;
+  font-size: 1em;
+  font-weight: 900;
+  color: rgb(0, 0, 0);
+  animation: cat 1ms 2750ms both;
+}
+.progress::after {
+  content: "";
+  width: 20em;
+  height: 2.2em;
+  border: 2px solid #0300a1;
+  z-index: 0;
+}
+
+@keyframes cat {
+  0% {
+    transform: translateX(-9999px);
+  }
+  100% {
+    transform: translateX(0);
+  }
+}
+@keyframes progress-bar {
+  0% {
+    transform: scaleX(0);
+  }
+  17% {
+    transform: scaleX(0.18);
+  }
+  24% {
+    transform: scaleX(0.4);
+    animation-timing-function: cubic-bezier(0.9, 0, 0.1, 1);
+  }
+  46% {
+    transform: scaleX(0.81);
+    animation-timing-function: cubic-bezier(0.25, 0.25, 1);
+  }
+  100% {
+    transform: scaleX(1);
+  }
 }
 
 /*# sourceMappingURL=style.css.map */
