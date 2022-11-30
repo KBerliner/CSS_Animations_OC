@@ -61,7 +61,6 @@ body {
             outline: none;
             padding: .5rem 1.5rem;
             width: 100%;
-            transition: background-color 500ms;
             &:focus {
                 border: 2px solid $cd-form-txt;
             }
@@ -69,6 +68,7 @@ body {
                 background: $cd-danger;
                 border: 2px solid $cd-danger;
                 color: $cd-form-txt--invalid;
+                animation: shake 100ms cubic-bezier(.4,.1,.6,.9) 2;
             }
         }
         & label {
@@ -120,6 +120,81 @@ body {
         height: 2.2em;
         border: 2px solid $progress--border;
         z-index: 0;
+    }
+}
+
+.load {
+    width: $load-size*10;
+    height: $load-size*7.5;
+    display: flex;
+    justify-content: space-evenly;
+    &__bar {
+        background-color: $cd-bars;
+        height: 100%;
+        width: $load-size;
+        animation: bars $anim-dur backwards infinite ease-in-out alternate;
+        @for $i from 1 through $num-bars {
+            &--#{$i} {
+                animation-delay: $anim-delay * $i;
+            }
+            &--#{$i}-inv {
+                animation-delay: $anim-delay * $i + random(100)*15ms;
+                animation-direction: alternate-reverse;
+                animation-fill-mode: forwards;
+                background-color: $cd-bars-inv;
+                &:hover {
+                    animation-play-state: paused;
+                }
+            }
+        }
+    }
+    &container {
+        & span {
+            font-family:'Courier New', Courier, monospace;
+            font-size: 24px;
+            padding: 6vh 0;
+        }
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+    }
+}
+
+.spin {
+    background-color: #15DEA5;
+    width: 30vh;
+    height: 30vh;
+    animation: spin 3000ms linear infinite paused;
+    &:hover {
+        animation-play-state: running;
+    }
+}
+
+@keyframes spin {
+    from {
+        transform: rotate(0deg);
+    }
+    to {
+        transform: rotate(360deg);
+    }
+}
+
+@keyframes bars {
+    0% {
+        transform: scaleY(0.5);
+    }
+    100% {
+        transform: scaleY(1);
+    }
+}
+
+@keyframes shake {
+    25% {
+        // far-right
+        transform: translateX($shake-intensity);
+    }
+    75% {
+        transform: translateX(-$shake-intensity);
     }
 }
 
